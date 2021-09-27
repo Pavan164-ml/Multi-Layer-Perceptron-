@@ -33,7 +33,7 @@ def main():
     EPOCHS = 30
     epochs = EPOCHS
     VALIDATION = (X_valid, y_valid)
-    # Just kiddings of
+    # Just kidd ings of
     history = model_clf.fit(X_train, y_train, epochs=EPOCHS, validation_data=VALIDATION)
     print(history.history)
     logging.info("-------------------------------------------------------------------")
