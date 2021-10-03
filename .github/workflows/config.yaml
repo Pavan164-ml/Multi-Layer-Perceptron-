@@ -1,0 +1,33 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# 1. Create a separate config file that should contain all the parameters used in the model such as Epoch, learning rate, etc.
+# 2. Keep the path to save a model in the config file.
+# 3. This config file can be of type YAML, JSON, or a PYTHON file. It's your choice.
+
+name: Upload MLP implementation
+
+on:
+  push:
+    branches:
+    - master
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install build
+      - name: Implementing Model
+        run: python -m build
+      
